@@ -1,0 +1,72 @@
+\documentclass[twoside,11pt]{article}
+
+%%%%% PACKAGES %%%%%%
+\usepackage{pgm2016}
+\usepackage{amsmath}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\usepackage{subcaption}
+\usepackage[utf8]{inputenc}		%NOT USED?
+\usepackage[english]{babel}		%NOT USED?
+\usepackage{paralist}			%NOT USED?
+\usepackage[lowtilde]{url}
+\usepackage{fixltx2e}
+
+%%%%% MACROS %%%%%%
+\algrenewcommand\Return{\State \algorithmicreturn{} }
+\algnewcommand{\LineComment}[1]{\State \(\triangleright\) #1}
+\renewcommand{\thesubfigure}{\roman{subfigure}}
+
+%%%%% HEADING %%%%%%
+% Heading arguments are {volume}{year}{pages}{submitted}{published}{author-full-names}
+%\pgmheading{1}{2000}{1-48}{4/00}{10/00}{Cory J. Butz, Jhonatan S. Oliveira, André E. dos Santos, and Anders L. Madsen}
+
+
+%%%%% SHORT HEADING %%%%%%
+% Short headings should be running head and authors last names
+
+%% My commands
+\newcommand{\thistitle}{{Getting Started with Meteor.js}}
+
+\ShortHeadings{\thistitle}{Oliveira}
+\firstpageno{1}
+
+\begin{document}
+
+\title{\thistitle}
+
+\author{\name Jhonatan S. Oliveira \email oliveira@cs.uregina.ca \\
+\addr Department of Computer Science \\
+University of Regina \\ 
+Regina, Canada
+}
+
+\editor{CS807 - Advanced Architecture - Dr. Gerhard}
+
+\maketitle
+
+\begin{abstract}%   <- trailing '%' for backward compatibility of .sty file
+Meteor is considered a full-stack javascript framework.
+That is, it handles from the server and data modeling to the client and user interface.
+Besides this all, Meteor uses only javascript as its programming language, meaning that a whole application may be build using only javascript.
+Moreover, the framework incorporate reactive programming features.
+Here, the flow of the data is more focused.
+In Meteor, this is tracked by using events.
+A general application using the framework will keep track of events and modify database and user interface accordingly.
+In this paper, we also show how Meteor can be used in resource constrains computing applications to distribute computing tasks in servers and letting the client with lightweight tasks.
+\end{abstract}
+
+\begin{keywords}
+Meteor, javascript, resource constrains
+\end{keywords}
+
+% Sections
+\input{sections/introduction}
+\input{sections/background}
+\input{sections/new_work}
+\input{sections/advantages}
+\input{sections/conclusions}
+
+\vskip 0.2in
+\bibliography{references/references}
+\end{document}
