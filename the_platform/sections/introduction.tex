@@ -1,2 +1,32 @@
 \section{Introduction}
 \label{sec:intro}
+
+In 2001, after the the bursting of the dot-com com bubble, the Web 2.0 phenomenon appeared and a survival way to the recent collapse \citep{oreilly2005}.
+New applications aimed to involve the user on the content creation process.
+One way of engaging the user is to offer a familiar environment, a similar to the one used in a desktop computer.
+Web platforms and frameworks made use of \emph{reactive programming} \citep{reactive2014} to achieve a desktop-like experience on the web.
+A consequence of turning the content creation responsibility to the user is the massive amount of data created by them, which originated another phenomenon called \emph{big data} \citep{SharmaTWGS14}.
+In order to manage all these data, new paradigmas emerged.
+\emph{Non-relational} or \emph{No-SQL} \citep{Strauch12} is a database paradigm that manage the data storage and retrieval without using a relational table.
+Novel web platforms and frameworks had to incorporate these new aspects in order to model and maintain the complexity requirement of the new applications.
+
+\emph{Meteor.js} \citep{meteor}, or Meteor for short, is an open-source web platform to create applications using the Web 2.0 paradigmas.
+The platform provide a reactive approach by focusing on the data flow.
+This is done by creating and managing events in the application.
+Also, data management is done with a non-SQL database called \emph{MongoDB} \citep{mongo}.
+Meteor simplify the application development by providing an unique programming language, javascript, throughout the whole stack process.
+Moreover, the platform makes available a set of common tools for business logic and data management.
+Finally, Meteor deploys the application in desktop and mobile without needing to change the source code.
+
+In this paper, we seek to give an overview of Meteor aiming to get reader started on the platform.
+We start by showing the template system which draws pages and receives event from the user.
+Next, the database management, called \emph{collections} in Meteor, is presented and some basic methods for creating, deleting, and updating entries.
+Then, we show how to deal with events on the application.
+Throughout the paper, we will use one running example which will be a To-do list type.
+Lastly, we show how Meteor can be used on resource constrain applications by transferring the heavy workload of the app to a server and letting the user interface respond reactively in a lightweight workload.
+
+The reminder is as follows.
+Section \ref{sec:back} shows a quick overview on the history and background informations of the Meteor platform.
+Basic concepts and introduction is given in Section \ref{sec:get_star}.
+Section \ref{sec:res} shows how Meteor can be used in resource constrain applications.
+Conclusions are given in Section \ref{sec:conc}.
