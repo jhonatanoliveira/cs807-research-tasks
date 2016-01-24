@@ -1,2 +1,165 @@
 \section{Getting Started}
 \label{sec:get_star}
+
+Now, we will follow a common flow for an app creation process.
+During this section, we will use a single running example which is an application for todo lists.
+This todo example can also be found on the official getting started tutorial in \citep{meteor}.
+We will try to keep the same code conventions and names always that possible so the reader can use this paper as an extended guide for that tutorial.
+We assume that the Meteor program and required 
+
+The following command line is used to create a new application with Meteor:
+\begin{lstlisting}[language=bash]
+meteor create todo
+\end{lstlisting}
+This creates a folder structure as shown below:
+\begin{lstlisting}[language=bash]
+todo.js todo.html todo.css .meteor
+\end{lstlisting}
+The \emph{todo.js} file is where the javascript code for the server and client stays.
+Here is where the code throws and handles events, besides business logic.
+Templates for user interface is done in the \emph{todo.html} file with pure HTML markup language and a template markup language.
+For this project Blaze is the template languages used.
+The \emph{todo.css} file contains styles for the templates.
+Lastly, the \emph{.meteor} stores settings and the meteor aplication itself in a hidden folder.
+
+\subsection{Templates}
+
+Templates are defined using a special tag called \emph{template}.
+Once defined, a template can be included within any HTML code.
+In this way, a template is a interface module that can be reuses wherever it is required.
+All the HTML code and the templates have access to the data made available in that part of the HTML code.
+The basic flow is: the javascript code makes available some data to a specific area of the HTML code (or a specific template), so the template language can access that data and print the ones of interest for the user.
+Bellow, we show a simple todo list interface.
+
+\begin{lstlisting}[language=html,escapechar=|]
+<head>
+  <title>Todo List</title>
+</head>
+ 
+<body>
+  <div class="container">
+    <header>
+      <h1>Todo List</h1>
+      <form class="new-task">  |\label{code:form_b}|
+        <input type="text" name="text" placeholder="Type to add new tasks" />
+      </form>  |\label{code:form_e}|
+    </header>
+ 
+    <ul>
+      {{#each tasks}}
+        {{> task}} |\label{code:temp}|
+      {{/each}}
+    </ul>
+  </div>
+</body>
+ 
+<template name="task">  |\label{code:temp_b}|
+  <li class="{{#if checked}}checked{{/if}}"> |\label{code:checked}|
+    <button class="delete">&times;</button>  |\label{code:delete}|
+    <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
+    <span class="text">{{text}}</span>
+  </li>
+</template>  |\label{code:temp_e}|
+\end{lstlisting}
+
+Here, the HTML code defines in its \emph{body} a title and a list.
+Notice that Blaze commands are defined within \emph{\{\{} and \emph{\}\}}.
+In the list, the Blaze command \emph{\#each} goes through a list of data, as in a loop lace.
+The data variable \emph{tasks} contains this list of data and was made available to this part of the code by the javascript code.
+The Blaze command \emph{$>$ name\_of\_template} prints a template previously defined with name \emph{name\_of\_template}.
+In lines \ref{code:temp_b}-\ref{code:temp_e}, the template named \emph{task} is defined.
+This template expect to find available in its scope a data variable called \emph{text}.
+In line \ref{code:temp}, the template is included in that spot of the HTML code and the data variable \emph{text} is available on the loop scope of the \emph{\#each} command.
+Note that \emph{text} is a field within \emph{tasks}.
+
+On the javascript file we define code for the client and server.
+In order to distinguish between them, Meteors makes available a global variable called \emph{isClient}, which goes to true if the running environment is the browser and goes to false if it is the Node.js one.
+If a code is called without being under the conditions of a client or server, the code is run in both environments.
+Follows the javascript code to create a simple database where the \emph{tasks} are saved.
+
+\begin{lstlisting}[language=java,escapechar=|]
+Tasks = new Mongo.Collection("tasks");  |\label{code:db}|
+ 
+if (Meteor.isClient) {  |\label{code:cond}|
+
+  // This code only runs on the client
+  Template.body.helpers({  |\label{code:help_b}|
+    tasks: function () {  |\label{code:func}|
+      return Tasks.find({});
+    }  |\label{code:help_e}|
+  });
+  
+  Template.body.events({
+    "submit .new-task": function (event) {  |\label{code:event}|
+      // Prevent default browser form submit
+      event.preventDefault();
+ 
+      // Get value from form element
+      var text = event.target.text.value;
+ 
+      // Insert a task into the collection
+      Tasks.insert({
+        text: text,
+        createdAt: new Date() // current time
+      });
+ 
+      // Clear form
+      event.target.text.value = "";
+    }
+  });
+  
+  Template.task.events({
+    "click .toggle-checked": function () {  |\label{code:event_checked}|
+      // Set the checked property to the opposite of its current value
+      Tasks.update(this._id, {
+        $set: {checked: ! this.checked}
+      });
+    },
+    "click .delete": function () {  |\label{code:delete_java}|
+      Tasks.remove(this._id);
+    }
+  });
+  
+}
+\end{lstlisting}
+
+Line \ref{code:db} runs on the server and on the client, since it is not inside the conditional in line \ref{code:cond}.
+In the server, that command creates a database called \emph{tasks} if it does not exist already.
+In the client, it creates a cache of the same database where Meteor manages some saved data in order to reuse repeated queries from the user.
+From line \ref{code:help_b} to \ref{code:help_e}, using the global variable \emph{Template}, we make available to the \emph{body} of the HTML whatever data the not named function in line \ref{code:func} return.
+The function returns all the entries in the previously created \emph{tasks} database.
+These returned data is available to the HTML code on a data variable called \emph{tasks}, as determined in line \ref{code:func}.
+
+\subsection{Inserting Data}
+
+Regarding the data inclusion, this HTML code has a form which will receive the new input data from the user.
+Lines \ref{code:form_b}-\ref{code:form_e} defines a simple form where the user can input new tasks.
+When pressing enter, an event is thrown from the HTML code and can be handled in the javascript code.
+
+The javascript code watch for an event for the form submission, as shown in line \ref{code:event}.
+From here, the default reaction of the browser, which is try to submit the form, is stopped.
+The, the value of the input text is saved in a variable.
+Next, the cached database variable \emph{Tasks} is used to insert a new entry on the server database with the text saved from the user input.
+Finally, the text input is cleared.
+
+Notice in the last insertion process that the cached database was used to update the server database.
+This is possible due to the way Meteor works in client and server.
+The client has only a cached version of the database.
+But whenever this cached version is updated, an event goes to the server (whenever there is connection available) making the server database to update.
+The other way around works in the same manner: if the server database is updated, an event goes to all client spreading the update.
+
+\subsection{Updating and Removing Data}
+
+If a task is done, we want to check it out from the list by updating its entry with a done flag.
+In the HTML code, line \ref{code:checked}, the template \emph{task} has a conditional statement checking for a variable called \emph{checked}.
+If the variable is true, the body of the condition, which is just a string \emph{checked}, is executed.
+This variable, as expected, is set in the javascript code.
+Indeed, in line \ref{code:event_checked}, the javascript watch for an event of a click on the checkbox.
+If it happens, the cached database \emph{Tasks} is updated by setting a field \emph{checked} to the opposite value that the user entered.
+Notice the use of a special variable \emph{this} which provides context for HTML access from where the event occurred.
+
+
+The deletion process is similar to updating but a different function is used on the cached database.
+The javascript code, line \ref{code:delete}, watch for the HTML code, line \ref{code:delete}.
+When the user clicks in the delete button, the javascript code is executed by removing the correspondent id of the entry.
+Again, note the use of \emph{this} as a context variable for the entry where the event occurred.
