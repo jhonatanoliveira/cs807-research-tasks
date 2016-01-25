@@ -1,2 +1,11 @@
 \section{Resource Constrains}
 \label{sec:res}
+
+Meteor can be used to build resource constrain products.
+In this type of application, the amount of processing and memory are often restricted.
+Therefore, the use of parallel computing or decentralized tasks are common and necessary.
+Meteor can be use to avoid heavy load computation in the limited hardware itself.
+A server can be used to process all the required heavy workload while the client simply show in real time the results.
+
+One way of providing an interface to a Meteor server side is by using the official server-client protocol, called \emph{Distributed Data Protocol} (DDP).
+The DDP protocol is a simple specification on how other languages can communicate with a Meteor server.
