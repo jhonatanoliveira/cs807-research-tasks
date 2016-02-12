@@ -1,0 +1,25 @@
+\section{Introduction}
+\label{sec:intro}
+
+Commercial computer architectures are based on a turing machine \citep{turing}.
+These computers can generally be split into two main computing tasks: storing and processing.
+In order to handle these tasks, different implementation patterns were proposed, for instance, the von-Neumann architecture.
+As technology evolved, storage became cheap and processing demand rose to exponential levels.
+That is, memories and processors might have different working speed.
+Thus, the mode of operation of these architectures imposes a limitations, which are collectively known as the \emph{von-Neumann bottleneck} \citep{bottleneck}. 
+
+There are already some suggested alternatives to these limitations, including parallel computing and quantum computing.
+Parallel computing are implemented by using multiple core processors.
+While parallel computing can minimize the von-Neumann bottleneck issue in one computing unit, when considering scaling the whole workstation it might need specialized units such as \emph{graphic processing units} (GPUs).
+These means more complexity on the infra-structure besides considering limitations of the specialized units themselves.
+On the other hand, quantum computers are promising in the sense that they are an unique computing platform with intrinsic massively parallel computing scheme.
+However, even considering the most recent improvements in the field, a practical quantum computing can not outperform a tradicional one yet.
+
+An alternative computer that might outperform the current ones should be able to has at least two properties: first, an intrinsically massively-parallel architecture, and second, storage and computation are performed by the same basic units.
+Transistors can not be used for achieving these goals since they are active elements, that is they require power to perform tasks.
+Thus, the massive parallelization comes with the expense of considerable power consumption.
+Besides that, normal transistor can not store informations.
+Lastly, transistors have low density.
+
+The best electronic element to achieve this goal are memelements.
+These are two terminal passive devices, that is do not require energy to work
