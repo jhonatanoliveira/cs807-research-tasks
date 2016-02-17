@@ -1,2 +1,31 @@
-\section{Getting Started}
-\label{sec:get_star}
+\section{Memcomputing Criteria}
+\label{sec:new}
+
+This section is drawn from \citep{DiVentra:2012fh} where the criteria were first presented.
+
+The first criteria is a scalable massively parallel architecture with combined information processing and storage.
+Here, the memelements are units of processing and storing information, while still working together as a whole system.
+A memelement can store information in two forms: its characteristic response, namely the voltage over the element when the input is applied, and in its intrinsic characteristic.
+For instance, a capacitor and inductor can store information on its electric and magnetic field, respectively.
+
+Second criteria is the sufficient long information storage times.
+The memelements should hold their state, that is the stored information, at least longer than the required time for processing them.
+In order to approach that, memelements can make use of non-volatile memory cells.
+For instance, the ones using CMOS technology.
+
+The third one is the ability of initialize memory state.
+This has to be with the programming desire.
+Relevant memelements can be be initialized using a provided mechanism for initialization.
+This can be done by applying an input that makes the memelements change their states to extreme points.
+
+The fourth criteria is a mechanism of collective dynamics.
+The basic idea here is to promote the collaborative characteristic of the architecture.
+That is, the current state of an element depends on the current state of some other elements.
+For instance, in a memelement circuit with resistive characteristics changing one element voltage affect other ones, since the resistance changes affecting the voltage in subsequent memelements.
+
+The fifth criteria is the ability to read the final result.
+After a processing is done in a memelement architecture, it is desired the possibility of reading the result of it.
+But the reading process can not modify the result state itself.
+This can be done by choosing an input voltage that the memelements does not change at that level or change little enough to do not be considered.
+
+The sixth and last criteria is the robustness against small imperfections and noise

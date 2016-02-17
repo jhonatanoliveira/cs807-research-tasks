@@ -1,12 +1,12 @@
 \section{Introduction}
 \label{sec:intro}
 
-Commercial computer architectures are based on a turing machine \citep{turing}.
+Commercial computer architectures are based on a turing machine \citep{turing48}.
 These computers can generally be split into two main computing tasks: storing and processing.
 In order to handle these tasks, different implementation patterns were proposed, for instance, the von-Neumann architecture.
 As technology evolved, storage became cheap and processing demand rose to exponential levels.
 That is, memories and processors might have different working speed.
-Thus, the mode of operation of these architectures imposes a limitations, which are collectively known as the \emph{von-Neumann bottleneck} \citep{bottleneck}. 
+Thus, the mode of operation of these architectures imposes a limitations, which are collectively known as the \emph{von-Neumann bottleneck} \citep{Backus:1978:PLV:359576.359579}. 
 
 There are already some suggested alternatives to these limitations, including parallel computing and quantum computing.
 Parallel computing are implemented by using multiple core processors.
@@ -22,4 +22,14 @@ Besides that, normal transistor can not store informations.
 Lastly, transistors have low density.
 
 The best electronic element to achieve this goal are memelements.
-These are two terminal passive devices, that is do not require energy to work
+These are two terminal passive devices, that is do not require energy to work.
+Memelements have three different characteristics: resistive, capacitive, and inductive.
+These characteristics change accordingly to the current passing through them, as if the characteristic is remembering the current.
+Thus the name memelements.
+\emph{Memcomputing} \citep{DiVentra:2012fh} is a non-turing paradigma for processing and storing information by using memelements.
+
+The reminder of the paper follows.
+Section \ref{sec:back} presents the basic background on the field and relates memcomputing with other alternative to the conventional computer.
+The criteria to implement a memcomputing system are given in Section \ref{sec:new}.
+Section \ref{sec:app} shows applications already using memcomputing.
+Conclusions are drawn in Section \ref{sec:conc}.
