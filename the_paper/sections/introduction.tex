@@ -1,2 +1,28 @@
 \section{Introduction}
 \label{sec:intro}
+
+\emph{Sum-product networks} (SPNs) \citep{Poon2011} are a new kind of deep architecture to graphically model real world problems.
+The paper \citep{Poon2011} wont the award for best paper at the 27th Uncertainty in Artificial Intelligence (UAI) conference in 2011.
+The UAI is a respected conference in the field of artificial intelligence.
+Thus, the paper must be well written and with strong impact in its research area.
+Indeed, my critic on this paper is very positive, as reviewed in this paper.
+Few negative comments are due to the lack of space, a limitation imposed by the conference, but this does not compromise the high quality of the work.
+
+The key idea in \citep{Poon2011} is to propose a solution for learning and inference in probabilistic graphical models (PGMs).
+It is known \citep{koll09} that inference in PGMs are exponential in worse case.
+Moreover, learning is also hard to manage given two constrains: the size of the graphical component and the size of the probability information \citep{Zhao2015}.
+Thus, SPNs draws inspiration from the work of \cite{Darwiche2009} to solve this issues.
+The graphical component is a rooted directed acyclic graph (DAG) and the probability information is saved on some nodes and edges of the DAG.
+The DAG has two types of nodes: sum and product, which values are computed by summing or multiplying its children, respectively.
+Inference is done by computing all nodes' values going up on this DAG until the root is reached.
+
+My critic for the paper is positive.
+The work is overall well described and the presentation is logically well done.
+Relating the novel work to related current ones is also well done by the authors, which has a whole section on it.
+The only negative critics goes to the brief discussion on background information and the quick passage between sections, without further details on the presented ideas.
+But this is acceptable, since it is known that the paper conference has space limitations.
+
+The remainder of this critic follows.
+In Section \ref{sec:back} we give a brief introduction to the work presented in the analyzed paper.
+The critic is then given in Section \ref{sec:new}.
+Section \ref{sec:conc} draws conclusions.
