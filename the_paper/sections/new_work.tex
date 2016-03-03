@@ -1,3 +1,48 @@
 \section{Critic}
 \label{sec:new}
 
+We start by first commenting on the proposed work itself.
+SPNs are a very promising PGM.
+Its feature to improve learning is of practical value, but the model was mathematically introduced with satisfactory rigour.
+The model has internal characteristics which are feasible to test in practice.
+These internal characteristics tells when the model will be able or not to run inference in reasonable time.
+Thus, one can learn a SPN while watching for these characteristics to be controlled.
+In this way, the learned model is guaranteed to do inference.
+
+Besides that, the authors based their work on the arithmetic circuits (ACs) from \cite{Darwiche2009}.
+This credit is stated right at the beginning of the paper and later one when comparing their proposed model with related works.
+The relation between ACs and SPNs though could be further clarified.
+It is possible to detect the similarities from the definitions, but there is a lack of clear motivation that would differentiate an AC model from a SPN.
+Indeed, in \cite{Zhao2015} the authors emphasize the relation between ACs and SPNs.
+In that work, it is clear that SPNs are defined in a way to be a standalone model.
+It is worth mentioning that ACs are formally defined to be a compilation of a given BN.
+That is, one could see an AC as an alternative way of telling the BN.
+In this sense, defining a SPN as a standalone model implies in having the same expressivity of an AC with the extended feature of modelling any other possible probability distribution that fits into the internal characteristics of a SPN.
+This is a very nice point to make in the paper, although it is obfuscated by technical discussion on the model itself.
+
+A personal opinion on the proposed model would be with the lack of semantic on it.
+Consider other PGMs, for instance a BN.
+One can tell the relationship between variables and even infer other ones by using a BN.
+On the contrary, a SPN does not have enough semantic to describe these relations neither a easy way of inferring them.
+That is, learning a SPN might be beneficial but the user loses the ability of understanding the learned variables and its interactions.
+
+Now, we comment on the paper itself.
+The work is careful described.
+This can be seen by the good division and flow of ideas.
+The introduction is well motivated and makes an overview of the whole paper.
+It also comments on related works, which gives a mor current context to the proposed work.
+The Sum-Product Networks section describes the model with formal definitions and common examples.
+This makes the new work more easy to follow and show its soundness.
+We notice though a small lack of background information on this section.
+For instance, the new model is introduced in page 2 of the paper, after a brief paragraph of definitions and contextualization.
+The missing background can be of course caused by the lack of space in a conference paper, but this does not affect the work enough to stop the reader of understanding the proposed ideas.
+The proofs are short and could have been more smooth, but again this can be due to the lack of space.
+Section 3 makes a good comparison with relates models, which emphasize the relevance of the new work and how it overcome the other models' issues.
+The following section on Learning Sum-Product networks is just a brief overview of the method, but enough to describe how one can learn a SPN from historical data.
+The most impressive section is the experiment results, which shows a SPN beating famous deep architecture models in a practical application of facial completing.
+This ends the paper with a very good impression.
+
+The authors also have one section before the conclusion to talk about one possible relation between SPNs and the cortex.
+They associate sum and product nodes of a SPN with two different types of cortex neurones.
+This serve as a motivation for neuroscience applications that could flourish from the usage of SPNs.
+Besides that, it also motivate the study of how this relationship can be beneficial for the SPNs itself.
