@@ -1,2 +1,8 @@
 \section{Conclusions}
 \label{sec:conc}
+
+SPNs are layer-wise models used to represent JPDs in a compact and graphical way.
+Inference in a SPN can be done by propagating up and down on the SPN DAG.
+When propagating in the tree, operations in the same layer can be computed simultaneously, since they do not require input from within the same layer.
+In this way, one can perform inference in SPN hopefully faster.
+Future works will implement the proposed parallel method to verify improvements.

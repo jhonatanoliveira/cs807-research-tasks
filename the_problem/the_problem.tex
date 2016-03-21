@@ -52,7 +52,7 @@
 % Short headings should be running head and authors last names
 
 %% My commands
-\newcommand{\thistitle}{{Multiplying Algebraic Decision Diagrams}}
+\newcommand{\thistitle}{{Inference with Sum-Product Networks}}
 
 \ShortHeadings{\thistitle}{Oliveira}
 \firstpageno{1}
@@ -72,19 +72,18 @@ Regina, Canada
 \maketitle
 
 \begin{abstract}%   <- trailing '%' for backward compatibility of .sty file
-Memcomputing was recently proposed as an alternative to turing paradigma of computation.
-The difference here is that the computation and the storage is done within the same architecture.
-In order to achieve that, memcopmuters use memelements, which are two-terminal electronics components with resistive, capacitive, and inductive characteristics.
-Memcomputers are mathematically proved able to solve NP-hard problems from turing computers.
+Sum-product networks (SPNs) are a layer-wise mathematical models for learning and inference with probabilistic graphical model.
+The main advantage of SPNs is that a learned model, under certain conditions, is guaranteed to have tractable inference in polynomial time, besides of inference being exact.
+Given a SPN, inference is done by propagating up on the network.
+In this paper, it is shown how the propagation can be done in parallel.
 \end{abstract}
 
 \begin{keywords}
-Memcomputing, post-silicon copmuting
+sum-product networks, resource constrain, gpu
 \end{keywords}
 
 % Sections
 \input{sections/introduction}
-\input{sections/background}
 \input{sections/new_work}
 \input{sections/conclusions}
 
