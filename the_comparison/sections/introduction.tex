@@ -1,0 +1,26 @@
+\section{Introduction}
+\label{sec:intro}
+
+The problem of parallelizing computation has been often focused by machine learning scientist in the last few years.
+This is due to the increasing interest of the community and industry in the applications of deep architectures.
+One challenge of using these type of models is the resource constrains due to high processing power required and storage.
+Thus, common solutions for these problems were gathered together in open source frameworks offered by institutions of the machine learning area.
+Next, it is shown some of the most well known frameworks when dealing with deep models in common computers.
+
+The first one is Theano \citep{theano}.
+This is a Python library that allows a user to define, optimize, and evaluate mathematical expressions involving multi-dimensional arrays efficiently.
+Some of the core features of this library is the integration with the famous Python library called NumPy, use of GPU for parallel computation, efficient symbolic differentiation, speed and stability optimizations, dynamic C code generation on the fly, and extensive unit-testing and self-verification.
+Since 2007, Theano has been powering large-scale computationally intensive scientific investigations.
+Although open source, Theano is primarily developed by academics by the University of Montreal.
+
+
+The second one is TensorFlow \citep{tensorflow}.
+TensorFlow is an open source software library for numerical computation using data flow graphs.
+Nodes in the graph represent mathematical operations, while the graph edges represent the multidimensional data arrays (tensors) communicated between them.
+The flexible architecture allows you to deploy computation to one or more CPUs or GPUs in a desktop, server, or mobile device with a single API. 
+TensorFlow was originally developed by researchers and engineers working on the Google Brain Team within Google's Machine Intelligence research organization for the purposes of conducting machine learning and deep neural networks research, but the system is general enough to be applicable in a wide variety of other domains as well.
+
+The third one is called Torch \cite{torch}.
+This library is a scientific computing framework with wide support for machine learning algorithms that puts GPUs first.
+It is made to be easy to use and efficient, due to its easy and fast scripting language, LuaJIT, and an underlying C/CUDA implementation.
+In the core, Torch has a powerful N-dimensional array, lots of routines for indexing, slicing, transposing, among others; linear algebra routines, and GPU support.

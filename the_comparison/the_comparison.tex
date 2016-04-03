@@ -1,0 +1,94 @@
+\documentclass[twoside,11pt]{article}
+
+%%%%% PACKAGES %%%%%%
+\usepackage{pgm2016}
+\usepackage{amsmath}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\usepackage{subcaption}
+\usepackage[utf8]{inputenc}		
+\usepackage[english]{babel}		
+\usepackage{paralist}			
+\usepackage[lowtilde]{url}
+\usepackage{fixltx2e}
+% Code formatting
+\usepackage{listings}
+\usepackage{color}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=mystyle}
+
+%%%%% MACROS %%%%%%
+\algrenewcommand\Return{\State \algorithmicreturn{} }
+\algnewcommand{\LineComment}[1]{\State \(\triangleright\) #1}
+\renewcommand{\thesubfigure}{\roman{subfigure}}
+
+%%%%% HEADING %%%%%%
+% Heading arguments are {volume}{year}{pages}{submitted}{published}{author-full-names}
+%\pgmheading{1}{2000}{1-48}{4/00}{10/00}{Cory J. Butz, Jhonatan S. Oliveira, André E. dos Santos, and Anders L. Madsen}
+
+
+%%%%% SHORT HEADING %%%%%%
+% Short headings should be running head and authors last names
+
+%% My commands
+\newcommand{\thistitle}{{Implementing Inference with Sum-Product Networks}}
+
+\ShortHeadings{\thistitle}{Oliveira}
+\firstpageno{1}
+
+\begin{document}
+
+\title{\thistitle}
+
+\author{\name Jhonatan S. Oliveira \email oliveira@cs.uregina.ca \\
+\addr Department of Computer Science \\
+University of Regina \\ 
+Regina, Canada
+}
+
+\editor{CS807 - Advanced Architecture - Dr. Gerhard and Trevor Tomesh}
+
+\maketitle
+
+\begin{abstract}%   <- trailing '%' for backward compatibility of .sty file
+Implementing Sum-product networks (SPNs) shows challenges for a resource constrain computing point of view.
+This is due to the size and processing requirements of these models.
+SPNs are a layer-wise mathematical models for learning and inference with probabilistic graphical model.
+Given a SPN, inference is done by propagating up and down in the network.
+Here, we propose one possible implementation for SPNs by using GPUs when parallelizing computation on the up and down in the networks.
+\end{abstract}
+
+\begin{keywords}
+sum-product networks, resource constrain, gpu
+\end{keywords}
+
+% Sections
+\input{sections/introduction}
+\input{sections/background}
+\input{sections/new_work}
+\input{sections/conclusions}
+
+\vskip 0.2in
+\bibliography{references/references}
+\end{document}

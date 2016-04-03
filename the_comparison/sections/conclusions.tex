@@ -1,0 +1,11 @@
+\section{Conclusions}
+\label{sec:conc}
+
+SPNs are layer-wise models used to represent JPDs in a compact and graphical way.
+Inference in a SPN can be done by propagating up and down on the SPN DAG.
+When propagating in the tree, operations in the same layer can be computed simultaneously, since they do not require input from within the same layer.
+In this way, one can perform inference in SPN hopefully faster.
+
+
+The comparison of inference in SPNs using CPUs and GPUs shows that GPUs are faster even for bigger networks.
+Future works can study the effect of GPUs in massively large networks, when compared to small ones, like the one used in this paper.
